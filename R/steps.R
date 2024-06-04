@@ -101,10 +101,12 @@ Cicerone <- R6::R6Class(
 #' highlighted, generally a callback function. This is effectively a string that is evaluated JavaScript-side.
 #' @param on_next A JavaScript function to run when the next button is clicked (or its event triggered), 
 #' generally a callback function. This is effectively a string that is evaluated JavaScript-side.
+#' @param on_prev A JavaScript function to run when the previous button is clicked (or its event triggered), 
+#' generally a callback function. This is effectively a string that is evaluated JavaScript-side.
     step = function(el, title = NULL, description = NULL, position = NULL, 
       class = NULL, show_btns = NULL, close_btn_text = NULL,
       next_btn_text = NULL, prev_btn_text = NULL, tab = NULL, tab_id = NULL, is_id = NULL,
-      on_highlighted = NULL, on_highlight_started = NULL, on_next = NULL) {
+      on_highlighted = NULL, on_highlight_started = NULL, on_next = NULL, on_prev = NULL) {
 
       if(!is.null(is_id))
         .Deprecated(...)
@@ -139,6 +141,7 @@ Cicerone <- R6::R6Class(
       
       if(!is.null(on_highlight_started)) step$onHighlightStarted <- on_highlight_started
       if(!is.null(on_next)) step$onNext <- on_next
+      if(!is.null(on_prev)) step$onPrevious <- on_prev
 
       if(length(popover)) step$popover <- popover
 

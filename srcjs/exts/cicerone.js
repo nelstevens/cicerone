@@ -77,6 +77,7 @@ const make_next = (id) => {
 };
 
 Shiny.addCustomMessageHandler("cicerone-init", function (opts) {
+  debugger;
   var id = opts.globals.id;
   var next_func = make_next(id);
   var prev_func = make_previous(id);
@@ -111,6 +112,12 @@ Shiny.addCustomMessageHandler("cicerone-init", function (opts) {
     if (opts.steps[index].onNext) {
       opts.steps[index].onNext = new Function(
         "return " + opts.steps[index].onNext,
+      )();
+    }
+    
+    if (opts.steps[index].onPrevious) {
+      opts.steps[index].onPrevious = new Function(
+        "return " + opts.steps[index].onPrevious,
       )();
     }
   });
