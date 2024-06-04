@@ -33,6 +33,6 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "driver.js": "^0.9.8"
+    "driver.js": "^0.9.7"
   }
 }
